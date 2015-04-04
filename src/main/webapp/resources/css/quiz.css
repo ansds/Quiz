@@ -1,0 +1,147 @@
+.mainWrapper {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f4f4f4;
+    min-height: 900px;
+}
+.top {
+    color: #a6abab;
+    display: block;
+    height: 40px;
+}
+.slogan {
+    float: left;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 11px;
+}
+.loginWrapper {
+    float: right;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+.login {
+    color: #313131;
+}
+.logout {
+    color: #313131;
+}
+.navigation {
+    height: 50px;
+    background-color: #047b75;
+}
+.logo {
+    font-size: 35px;
+    margin-left: 25px;
+    margin-top: 10px;
+    float: left;
+}
+.logoLink {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.nav {
+
+}
+.navLink {
+    float: right;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 19px;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 1px solid #d2d6d5;
+    text-transform: uppercase;
+}
+.navLink:hover {
+    background-color: #f4f4f4;
+    color: #313131;
+}
+.contentLabel {
+    color: #323232;
+    margin-top: 20px;
+    margin-left: 70px;
+    font-size: 20px;
+}
+.quiz {
+    margin-top: 5px;
+    margin-left: 70px;
+    margin-bottom: 30px;
+}
+.quizInfo {
+    line-height: 23px;
+    color: #313131;
+}
+.quizLink {
+    color: #313131;
+}
+.userLink {
+    color: #a6abab;
+}
+.quizLink:hover {
+    color: #000000;
+}
+.userLink:hover {
+    color: #000000;
+}
+.quizDate {
+    color: #a6abab;
+}
+.descriptionTitle {
+    margin-top: 40px;
+    display: block;
+    font-size: 17px;
+    color: #323232;
+}
+.description {
+    margin-right: 65px;
+    display: block;
+    text-align: justify;
+    color: #313131;
+}
+.quizText {
+    color: #a6abab;
+}
+.startQuiz {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #047b75), color-stop(1, #047b75));
+    background:-moz-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:-webkit-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:-o-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:-ms-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:linear-gradient(to bottom, #047b75 5%, #047b75 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#047b75', endColorstr='#047b75',GradientType=0);
+    background-color:#047b75;
+    -moz-border-radius:30px;
+    -webkit-border-radius:30px;
+    border-radius:30px;
+    border:1px solid #047b75;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:arial;
+    font-size:17px;
+    padding:9px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 13px #047b75;
+    margin-left: 70px;
+}
+.startQuiz:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #047b75), color-stop(1, #047b75));
+    background:-moz-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:-webkit-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:-o-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:-ms-linear-gradient(top, #047b75 5%, #047b75 100%);
+    background:linear-gradient(to bottom, #047b75 5%, #047b75 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#047b75', endColorstr='#047b75',GradientType=0);
+    background-color:#047b75;
+}
+.startQuiz:active {
+    position:relative;
+    top:1px;
+}
+

@@ -1,0 +1,75 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition name="template" template="/WEB-INF/views/main_template.jsp">
+        <put-attribute name="top" value="/WEB-INF/views/tiles/top.jsp"/>
+    </definition>
+
+    <definition name="home" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/home.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="login" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/login.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="registration" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/registration.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/registration.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="quiz" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/quiz.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/quiz.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="startedquiz" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/startedquiz.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/startedquiz.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="result" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/result.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/result.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="createquiz" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/createquiz.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/createquiz.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="profile" extends="template">
+        <put-attribute name="content" value="/WEB-INF/views/profile.jsp"/>
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/resources/css/reset.css"/>
+            <add-attribute value="/resources/css/profile.css"/>
+        </put-list-attribute>
+    </definition>
+
+
+</tiles-definitions>

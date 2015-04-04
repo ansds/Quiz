@@ -1,0 +1,94 @@
+.mainWrapper {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f4f4f4;
+    min-height: 900px;
+}
+.top {
+    color: #a6abab;
+    display: block;
+    height: 40px;
+}
+.slogan {
+    float: left;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 11px;
+}
+.loginWrapper {
+    float: right;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+.login {
+    color: #313131;
+}
+.logout {
+    color: #313131;
+}
+.navigation {
+    height: 50px;
+    background-color: #047b75;
+}
+.logo {
+    font-size: 35px;
+    margin-left: 25px;
+    margin-top: 10px;
+    float: left;
+}
+.logoLink {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.nav {
+
+}
+.navLink {
+    float: right;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 19px;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 1px solid #d2d6d5;
+    text-transform: uppercase;
+}
+.navLink:hover {
+    background-color: #f4f4f4;
+    color: #313131;
+}
+.contentLabel {
+    color: #323232;
+    margin-top: 20px;
+    margin-left: 70px;
+    font-size: 20px;
+    margin-bottom: 70px;
+}
+.form {
+    display: block;
+    text-align: center;
+    margin:0 auto
+}
+.label {
+    margin-top: 10px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+    color: #313131;
+    margin-bottom: 20px;
+}
+.labelPassword {
+    margin-left: -23px;
+}
+.photoLabel {
+    margin-left: 88px;
+    margin-bottom: 20px;
+}
+.errors {
+    color: #ff1e19;
+}

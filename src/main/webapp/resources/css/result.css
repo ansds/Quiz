@@ -1,0 +1,114 @@
+.mainWrapper {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f4f4f4;
+    min-height: 900px;
+}
+.top {
+    color: #a6abab;
+    display: block;
+    height: 40px;
+}
+.slogan {
+    float: left;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 11px;
+}
+.loginWrapper {
+    float: right;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+.login {
+    color: #313131;
+}
+.logout {
+    color: #313131;
+}
+.navigation {
+    height: 50px;
+    background-color: #047b75;
+}
+.logo {
+    font-size: 35px;
+    margin-left: 25px;
+    margin-top: 10px;
+    float: left;
+}
+.logoLink {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.nav {
+
+}
+.navLink {
+    float: right;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 19px;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 1px solid #d2d6d5;
+    text-transform: uppercase;
+}
+.navLink:hover {
+    background-color: #f4f4f4;
+    color: #313131;
+}
+.contentLabel {
+    color: #323232;
+    margin-top: 20px;
+    margin-left: 70px;
+    font-size: 20px;
+}
+.quiz {
+    margin-top: 5px;
+    margin-left: 70px;
+    margin-bottom: 30px;
+}
+.resultWrapper {
+    line-height: 23px;
+    color: #313131;
+    margin-top: 70px;
+    border: 1px solid #e1e3e4;
+    margin-right: 70px;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+.quizLink {
+    color: #313131;
+}
+.userLink {
+    color: #a6abab;
+}
+.quizLink:hover {
+    color: #000000;
+}
+.userLink:hover {
+    color: #000000;
+}
+.quizDate {
+    color: #a6abab;
+}
+.descriptionTitle {
+    margin-top: 40px;
+    display: block;
+    font-size: 17px;
+    color: #323232;
+}
+.description {
+    margin-right: 65px;
+    display: block;
+    text-align: justify;
+    color: #313131;
+}
+.quizText {
+    color: #a6abab;
+}
