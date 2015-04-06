@@ -5,9 +5,17 @@
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
-       <context:property-placeholder location="/WEB-INF/database/database.properties"/>
+       <context:property-placeholder location="/WEB-INF/database/database.properties" order="0" ignore-unresolvable="true"/>
+       <context:property-placeholder location="/WEB-INF/imagecloud/cloudinary.properties" order="0" ignore-unresolvable="true"/>
+
        <!-- Exception translation bean post processor -->
        <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+       <bean id="imageSaver" class="com.ds.quiz.infrastructure.imagesaver.ImageSaverCloudinary">
+              <constructor-arg name="cloud_name" value="${cloud_name}"/>
+              <constructor-arg name="api_key" value="${api_key}"/>
+              <constructor-arg name="api_secret" value="${api_secret}"/>
+       </bean>
 
        <bean id="statisticsService" class="com.ds.quiz.service.StatisticsServiceImpl">
               <property name="statiscticsDao" ref="statisticsDao"/>
@@ -61,11 +69,6 @@
        <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
               <property name="dataSource" ref="dataSource"/>
               <property name="packagesToScan" value="com.ds.quiz.model"/>
-              <!--<property name="annotatedClasses">-->
-                     <!--<value>com.ds.quiz.model.Answer</value>-->
-                     <!--&lt;!&ndash;<value>com.ds.quiz.model.User</value>&ndash;&gt;-->
-
-              <!--</property>-->
               <property name="hibernateProperties">
                      <value>
                             hibernate.dialect=${dialect}

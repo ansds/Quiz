@@ -1,6 +1,7 @@
 package com.ds.quiz.controller;
 
 import com.ds.quiz.dao.EntityDoesNotExistException;
+import com.ds.quiz.infrastructure.imagesaver.ImageSaver;
 import com.ds.quiz.model.Question;
 import com.ds.quiz.model.Quiz;
 import com.ds.quiz.model.Statistics;
@@ -16,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +35,8 @@ public class ProfileController {
     private UserService userService;
     @Resource(name = "statisticsService")
     private StatisticsService statisticsService;
+    @Resource(name = "imageSaver")
+    private ImageSaver imageSaver;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getUserProfile(Model model) throws EntityDoesNotExistException {
@@ -44,7 +49,9 @@ public class ProfileController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String changeUserProfile(Model model, HttpServletRequest request) throws EntityDoesNotExistException {
+    public String changeUserProfile(Model model,
+                                    HttpServletRequest request,
+                                    @RequestParam(value = "image", required = false) MultipartFile image) throws EntityDoesNotExistException {
         String newUsername = request.getParameter("username");
         String newEmail = request.getParameter("email");
 //        String newPassword = request.getParameter("password");
@@ -57,16 +64,18 @@ public class ProfileController {
         if(newEmail != null) {
             user.setEmail(newEmail);
         }
+        if(!image.isEmpty()) {
+            try {
+                imageSaver.validateImage(image);
+                imageSaver.saveImage(String.valueOf(user.getId()), image, user);
+            } catch (Exception e) {
+                return "profile";
+            }
+        }
         userService.updateUser(user);
-//        Authentication authentication = new UsernamePasswordAuthenticationToken();
-//        SecurityContextHolder.getContext().getAuthentication().getPrincipal()//setAuthentication(authentication);
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User userDetails = (User) authentication.getPrincipal();
         userDetails.setUsername(user.getUsername());
-        //authentication.getCredentials();
-
-
         return getUserProfile(model);
     }
 

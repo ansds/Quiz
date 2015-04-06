@@ -1,10 +1,16 @@
 package com.ds.quiz.controller;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.Transformation;
+import com.cloudinary.utils.ObjectUtils;
+import com.ds.quiz.infrastructure.imagesaver.ImageSaver;
 import com.ds.quiz.model.User;
 import com.ds.quiz.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +23,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -28,6 +36,8 @@ public class RegistrationController {
 
     @Resource(name = "userService")
     private UserService userService;
+    @Resource(name = "imageSaver")
+    private ImageSaver imageSaver;
 
     @RequestMapping(method = RequestMethod.GET)
     public String createUserAccount(Model model) {
@@ -39,37 +49,33 @@ public class RegistrationController {
     public String createUserFromForm(@Valid User user, BindingResult bindingResult,
                                      @RequestParam(value = "image", required = false)MultipartFile image) throws Exception {
         if(bindingResult.hasErrors()) {
-            return "registration";
-        }
-        userService.addUser(user);
+            for (Object object : bindingResult.getAllErrors()) {
+                if(object instanceof FieldError) {
+                    FieldError fieldError = (FieldError) object;
 
+                    System.out.println(fieldError.getField() + " " + fieldError.getCode());
+                }
+
+                if(object instanceof ObjectError) {
+                    ObjectError objectError = (ObjectError) object;
+
+                    System.out.println(objectError.getObjectName() + " " + objectError.getCode());
+                }
+            }
+            return "registration";
+
+        }
         try {
             if (!image.isEmpty()) {
-                validateImage(image);
-
-                saveImage(user.getId() + ".jpg", image);
+                imageSaver.validateImage(image);
+                imageSaver.saveImage(String.valueOf(user.getId()), image, user);
             }
         } catch (Exception e) {
             bindingResult.reject(e.getMessage());
             return "registration";
         }
-
+        userService.addUser(user);
         return "redirect:/login";
-    }
-
-    private void validateImage(MultipartFile image) throws Exception {
-        if(!image.getContentType().equals("image/jpeg")) {
-            throw new Exception("Only JPG images accepted");
-        }
-    }
-
-    private void saveImage(String imageName, MultipartFile image) throws IOException {
-        File file = new File("D:\\" + imageName);
-        file.createNewFile();
-        FileOutputStream fos = new FileOutputStream(file);
-        fos.write(image.getBytes());
-        fos.flush();
-        fos.close();
     }
 
 }

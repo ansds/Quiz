@@ -49,11 +49,24 @@
       <sf:input path="password" showPassword="false"/>
       <br/>
       <br/>
+      <div class="userImageWrapper">
+        <img src="${user.imageLink}" height="50px" width="50px" alt="" class="userImage"/>
+      </div>
+      <br/>
       <span class="label photoLabel">Photo</span>
-      <input name="image" type="file"/>
+      <input name="image" type="file" class="userImageInput" onchange="previewImage();"/>
       <br/>
       <br/>
       <input type="submit" value="Create new account"/>
     </sf:form>
   </div>
 </div>
+<script>
+  function previewImage() {
+    var oFReader  = new FileReader();
+    oFReader .readAsDataURL(document.getElementsByClassName("userImageInput")[0].files[0]);
+    oFReader .onload = function(oFREvent) {
+      document.getElementsByClassName("userImage")[0].src = oFREvent.target.result;
+    };
+  };
+</script>

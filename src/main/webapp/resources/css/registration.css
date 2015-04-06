@@ -92,3 +92,14 @@
 .errors {
     color: #ff1e19;
 }
+.userImageWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.userImage {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 100%;
+}

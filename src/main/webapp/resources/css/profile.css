@@ -93,7 +93,15 @@
     margin-bottom: 10px;
     display: block;
 }
+.photoLabel {
+    margin-bottom: 10px;
+    display: block;
+}
 input[type="text"] {
+    margin-bottom: 4px;
+    display: block;
+}
+.userImageInput {
     margin-bottom: 4px;
     display: block;
 }
@@ -132,6 +140,7 @@ TH{
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #047b75;
+    color: #FFFFFF;
 }
 TD {
     border: 1px solid #a6abab;
@@ -139,4 +148,15 @@ TD {
     padding-right: 25px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.userImageWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.userImage {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 100%;
 }

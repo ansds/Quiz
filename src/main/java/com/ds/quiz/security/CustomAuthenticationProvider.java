@@ -37,7 +37,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 
         password = CryptUtils.cryptPassword(password, user.getSalt());
 
-        if(!password.equals(user.getPassword())) {
+        if(!password.equals(user.getCryptedPassword())) {
             throw new BadCredentialsException("Wrong Password");
         }
 

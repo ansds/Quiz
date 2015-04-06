@@ -30,12 +30,18 @@ public class User implements UserDetails{
     @Pattern(regexp="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message = "Invalid email address")
     private String email;
 
-    @Column(name = "password")
-//    @Size(min = 6, max = 25, message = "The password must be at least 6 characters long")
+    @Transient
+    @Size(min = 6, max = 25, message = "The password must be at least 6 characters long")
     private String password;
+
+    @Column(name = "cryptedPassword")
+    private String cryptedPassword;
 
     @Column(name = "salt")
     private String salt;
+
+    @Column(name = "image")
+    private String imageLink;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
@@ -106,6 +112,14 @@ public class User implements UserDetails{
     public User(String username, String email) {
         this.username = username;
         this.email = email;
+    }
+
+    public String getCryptedPassword() {
+        return cryptedPassword;
+    }
+
+    public void setCryptedPassword(String cryptedPassword) {
+        this.cryptedPassword = cryptedPassword;
     }
 
     public int getId() {
@@ -192,5 +206,13 @@ public class User implements UserDetails{
 
     public void setStatistics(List<Statistics> statistics) {
         this.statistics = statistics;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 }

@@ -7,7 +7,7 @@
 
   <c:forEach var="quiz" items="${quizzes}">
     <div class="quiz">
-      <a href="user"><img src="/Quiz-1.0-SNAPSHOT/resources/img/av.png" alt="" class="avatar"/></a>
+      <a href="user"><img src="${quiz.user.imageLink}" height="50px" width="50px" alt="" class="avatar"/></a>
       <div class="quizInfo">
         <c:url value="/quiz/${quiz.id}" var="quizLink" />
         <a href="${quizLink}" class="quizLink">${quiz.caption}</a>

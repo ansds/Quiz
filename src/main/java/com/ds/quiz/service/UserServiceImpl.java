@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void addUser(User user) {
         user.setSalt(CryptUtils.generateSalt());
-        user.setPassword(CryptUtils.cryptPassword(user.getPassword(), user.getSalt()));
+        user.setCryptedPassword(CryptUtils.cryptPassword(user.getPassword(), user.getSalt()));
         userDao.create(user);
     }
 
